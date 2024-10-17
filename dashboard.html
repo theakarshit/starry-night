@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Universe Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0D1B2A;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section {
+            background-color: #1B263B;
+            border-radius: 10px;
+            padding: 20px;
+            width: 48%;
+            box-sizing: border-box;
+        }
+
+        h2 {
+            color: #FFE43A;
+            font-size: 28px;
+        }
+
+        textarea, input[type="file"] {
+            width: 100%;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #33415C;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #FFE43A;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #FFC107;
+        }
+
+        .comments-section {
+            margin-top: 20px;
+        }
+
+        .comment-box {
+            background-color: #33415C;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .constellation-aries {
+            background-image: url('aries-constellation.jpg');
+            background-size: cover;
+        }
+
+        .constellation-virgo {
+            background-image: url('virgo-constellation.jpg');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body>
+    <h1>Our Universe Dashboard</h1>
+
+    <!-- Dashboard Sections -->
+    <div class="container">
+        <!-- Akarshit's Section -->
+        <div class="section constellation-aries">
+            <h2>Akarshit's Updates</h2>
+            <textarea id="akarshit-update" rows="5" placeholder="Share your update here..."></textarea><br>
+            <input type="file" id="akarshit-image" accept="image/*"><br>
+            <button type="button" onclick="submitAkarshitUpdate()">Submit</button>
+
+            <div class="comments-section" id="akarshit-comments">
+                <h3>Comments from Harshika</h3>
+                <!-- Harshika's comments will appear here -->
+            </div>
+        </div>
+
+        <!-- Harshika's Section -->
+        <div class="section constellation-virgo">
+            <h2>Harshika's Updates</h2>
+            <textarea id="harshika-update" rows="5" placeholder="Share your update here..."></textarea><br>
+            <input type="file" id="harshika-image" accept="image/*"><br>
+            <button type="button" onclick="submitHarshikaUpdate()">Submit</button>
+
+            <div class="comments-section" id="harshika-comments">
+                <h3>Comments from Akarshit</h3>
+                <!-- Akarshit's comments will appear here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const currentUser = new URLSearchParams(window.location.search).get('user');
+
+        // Function to submit Akarshit's update
+        function submitAkarshitUpdate() {
+            if (currentUser === 'akarshit') {
+                const updateText = document.getElementById('akarshit-update').value;
+                alert('Akarshit\'s update: ' + updateText);
+                // Add functionality to save and display update
+            } else {
+                alert('You can only view this section.');
+            }
+        }
+
+        // Function to submit Harshika's update
+        function submitHarshikaUpdate() {
+            if (currentUser === 'harshika') {
+                const updateText = document.getElementById('harshika-update').value;
+                alert('Harshika\'s update: ' + updateText);
+                // Add functionality to save and display update
+            } else {
+                alert('You can only view this section.');
+            }
+        }
+    </script>
+</body>
+</html>
