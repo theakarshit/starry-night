@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+}
+
+#login-form input {
+    margin-right: 10px;
+    padding: 5px;
+}
+
+#login-form button {
+    padding: 5px 10px;
+}
+
+#protected-content {
+    margin-top: 20px;
+    font-size: 18px;
+}
