@@ -18,25 +18,26 @@
         /* Header Styles */
         .header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* Center the header content */
             align-items: center;
             padding: 20px;
             background-color: #1B263B; /* Darker background for the header */
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Shadow for subtle depth */
         }
 
-        .header img {
-            height: 60px; /* Adjust logo size for better alignment */
-            margin: 0 20px; /* Margin around the logo */
-        }
-
         .menu-left, .menu-right {
             display: flex;
             align-items: center; /* Center items vertically */
+            margin: 0 20px; /* Add margin on the left and right */
+        }
+
+        .header img {
+            height: 60px; /* Adjust logo size for better alignment */
+            margin: 0 15px; /* Margin around the logo */
         }
 
         .menu-item {
-            margin: 0 15px;
+            margin: 0 10px; /* Decrease margin between menu items */
             color: #E1E2E1; /* Moonlight text color */
             font-size: 24px; /* Larger font for visibility */
             text-decoration: none;
