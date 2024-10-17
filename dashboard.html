@@ -21,8 +21,12 @@
             justify-content: center; /* Center the header content */
             align-items: center;
             padding: 20px;
-            background-color: #1B263B; /* Darker background for the header */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Shadow for subtle depth */
+            background-color: rgba(27, 38, 59, 0.6); /* Transparent background */
+            position: absolute; /* Position header over the hero image */
+            width: 100%; /* Make sure the header spans the full width */
+            top: 0;
+            left: 0;
+            z-index: 10; /* Ensure the header stays on top */
         }
 
         .menu-left, .menu-right {
@@ -62,6 +66,7 @@
             background-image: url('https://i.ibb.co/ccfBtLh/Firefly-20241017205313-transformed.png');
             background-size: cover;
             background-position: center;
+            position: relative;
         }
 
         /* Left Section for Akarshit (Aries) */
