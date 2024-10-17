@@ -10,9 +10,9 @@
 
         body {
             margin: 0;
-            font-family: 'Sacramento', cursive; /* Sacramento font applied globally */
+            font-family: 'Sacramento', cursive; /* Sacramento font */
             background-color: #0D1B2A; /* Dark background */
-            color: #E1E2E1; /* Moonlight color for the text */
+            color: #E1E2E1; /* Moonlight text color */
         }
 
         /* Header Styles */
@@ -28,7 +28,7 @@
         .menu-left, .menu-right {
             display: flex;
             align-items: center; /* Center items vertically */
-            margin: 0 20px; /* Add margin on the left and right */
+            margin: 0 20px; /* Margin on the left and right */
         }
 
         .header img {
@@ -51,6 +51,23 @@
 
         .menu-item:hover {
             color: #FFE43A; /* Soft yellow highlight on hover */
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80vh; /* Height of the hero section */
+            background-image: url('https://i.ibb.co/ccfBtLh/Firefly-20241017205313-transformed.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* Left Section for Akarshit (Aries) */
+        .left-section, .right-section {
+            width: 50%; /* Split into two equal sections */
+            height: 100%;
         }
     </style>
 </head>
@@ -75,6 +92,15 @@
             <a href="#" class="menu-item">Images</a>
         </div>
     </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Left Section: Akarshit (Aries) -->
+        <div class="left-section"></div>
+
+        <!-- Right Section: Harshika (Virgo) -->
+        <div class="right-section"></div>
+    </section>
 
 </body>
 </html>
