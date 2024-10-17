@@ -3,23 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Protected Site</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Login - Our Universe</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0D1B2A;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+        .login-box, .set-password-box {
+            background-color: #1B263B;
+            padding: 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #FFE43A;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        h2 {
+            color: #FFE43A;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the Password-Protected Website</h1>
-    <p>Enter the password to continue.</p>
+    <h1>Welcome to Our Universe</h1>
+    <p>Enter your login details or set a new password</p>
 
-    <form id="login-form">
-        <input type="password" id="password" placeholder="Password">
-        <button type="submit">Submit</button>
-    </form>
-
-    <div id="protected-content" style="display: none;">
-        <h2>Secret Content</h2>
-        <p>This content is only for authorized users!</p>
+    <!-- Login Section -->
+    <div class="login-box">
+        <h2>Login</h2>
+        <form id="login-form">
+            <input type="text" id="login-username" placeholder="Enter Username" required><br>
+            <input type="password" id="login-password" placeholder="Enter Password" required><br>
+            <button type="submit">Login</button>
+        </form>
+        <p id="login-error-message" style="color: red;"></p>
     </div>
 
-    <script src="script.js"></script>
+    <!-- Set Password Section -->
+    <div class="set-password-box">
+        <h2>Set Password</h2>
+        <form id="set-password-form">
+            <input type="text" id="set-username" placeholder="Enter Username" required><br>
+            <input type="password" id="new-password" placeholder="Enter New Password" required><br>
+            <button type="submit">Set Password</button>
+        </form>
+        <p id="set-password-message" style="color: red;"></p>
+    </div>
+
+    <script>
+        // Object to store user credentials
+        const users = {
+            theakarshit: '',
+            harshika09: ''
+        };
+
+        // Handle Login Form
+        document.getElementById('login-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            // Check if the username and password match
+            if (users[username] && users[username] === password) {
+                // Redirect based on user
+                if (username === 'theakarshit') {
+                    window.location.href = 'dashboard.html?user=akarshit';
+                } else if (username === 'harshika09') {
+                    window.location.href = 'dashboard.html?user=harshika';
+                }
+            } else {
+                document.getElementById('login-error-message').innerText = 'Incorrect username or password';
+            }
+        });
+
+        // Handle Set Password Form
+        document.getElementById('set-password-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            
+            const username = document.getElementById('set-username').value;
+            const newPassword = document.getElementById('new-password').value;
+
+            // Check if the username is allowed to set a password
+            if (username === 'theakarshit' || username === 'harshika09') {
+                // Set the password for the user
+                users[username] = newPassword;
+                document.getElementById('set-password-message').innerText = 'Password successfully set!';
+            } else {
+                document.getElementById('set-password-message').innerText = 'This username is not allowed to set a password';
+            }
+        });
+    </script>
 </body>
 </html>
