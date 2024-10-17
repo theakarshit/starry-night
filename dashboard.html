@@ -3,143 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Our Universe</title>
+    <title>Our Universe - Dashboard</title>
     <style>
+        /* Sacramento Font */
+        @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #1E1E2E; /* Dark background */
-            color: #EDEDED; /* Light text color */
-            text-align: center;
+            margin: 0;
+            font-family: 'Sacramento', cursive; /* Sacramento font applied globally */
+            background-color: #0D1B2A; /* Dark background */
+            color: #E1E2E1; /* Moonlight color for the text */
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 20px;
+            background-color: #1B263B; /* Darker background for the header */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Shadow for subtle depth */
         }
 
-        .section {
-            background-color: #2E2E40; /* Slightly lighter dark background */
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 10px;
-            text-align: left;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+        .header img {
+            height: 60px; /* Adjust logo size for better alignment */
+            margin: 0 20px; /* Margin around the logo */
         }
 
-        h2 {
-            color: #FFE43A; /* Highlighted yellow for headings */
+        .menu-left, .menu-right {
+            display: flex;
+            align-items: center; /* Center items vertically */
         }
 
-        h3 {
-            color: #FFC107; /* Light amber for comment box headings */
+        .menu-item {
+            margin: 0 15px;
+            color: #E1E2E1; /* Moonlight text color */
+            font-size: 24px; /* Larger font for visibility */
+            text-decoration: none;
+            transition: color 0.3s;
         }
 
-        p {
-            color: #C0C0C0; /* Muted grey for paragraph text */
-        }
-
-        textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: none;
-            background-color: #3B3B52; /* Dark background for textarea */
-            color: white; /* Light text color for input */
-            box-sizing: border-box;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #FFE43A; /* Bright button color */
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            color: black;
-        }
-
-        button:hover {
-            background-color: #FFC107; /* Slightly darker on hover */
-        }
-
-        .comment-box {
-            margin-top: 20px;
+        .menu-item:hover {
+            color: #FFE43A; /* Soft yellow highlight on hover */
         }
     </style>
 </head>
 <body>
-    <h1>Welcome to Our Universe</h1>
 
-    <!-- Akarshit's Section -->
-    <div id="akarshit-section" class="section">
-        <h2>Akarshit's Updates</h2>
-        <div id="akarshit-content">
-            <p id="akarshit-text">Akarshit’s daily thoughts and updates will appear here...</p>
+    <!-- Header Section -->
+    <header class="header">
+        <!-- Left Menu -->
+        <div class="menu-left">
+            <a href="#" class="menu-item">Bio Card</a>
+            <a href="#" class="menu-item">Memories</a>
         </div>
-        <div id="akarshit-edit" style="display: none;">
-            <textarea id="akarshit-input" placeholder="Write your update here..."></textarea><br>
-            <button onclick="saveAkarshitUpdate()">Save Update</button>
+
+        <!-- Logo in Center -->
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/5417/5417147.png" alt="Logo">
         </div>
-        
-        <!-- Harshika's comment box for Akarshit's section -->
-        <div class="comment-box">
-            <h3>Harshika's Comment</h3>
-            <textarea id="akarshit-comment" placeholder="Leave a comment..."></textarea><br>
-            <button onclick="saveAkarshitComment()">Post Comment</button>
+
+        <!-- Right Menu -->
+        <div class="menu-right">
+            <a href="#" class="menu-item">Thoughts</a>
+            <a href="#" class="menu-item">Images</a>
         </div>
-    </div>
+    </header>
 
-    <!-- Harshika's Section -->
-    <div id="harshika-section" class="section">
-        <h2>Harshika's Updates</h2>
-        <div id="harshika-content">
-            <p id="harshika-text">Harshika’s daily thoughts and updates will appear here...</p>
-        </div>
-        <div id="harshika-edit" style="display: none;">
-            <textarea id="harshika-input" placeholder="Write your update here..."></textarea><br>
-            <button onclick="saveHarshikaUpdate()">Save Update</button>
-        </div>
-        
-        <!-- Akarshit's comment box for Harshika's section -->
-        <div class="comment-box">
-            <h3>Akarshit's Comment</h3>
-            <textarea id="harshika-comment" placeholder="Leave a comment..."></textarea><br>
-            <button onclick="saveHarshikaComment()">Post Comment</button>
-        </div>
-    </div>
-
-    <script>
-        // Check URL for logged-in user
-        const urlParams = new URLSearchParams(window.location.search);
-        const user = urlParams.get('user');
-
-        if (user === 'akarshit') {
-            document.getElementById('akarshit-edit').style.display = 'block';
-        } else if (user === 'harshika') {
-            document.getElementById('harshika-edit').style.display = 'block';
-        }
-
-        // Save Akarshit's update
-        function saveAkarshitUpdate() {
-            const updateText = document.getElementById('akarshit-input').value;
-            document.getElementById('akarshit-text').innerText = updateText;
-            alert("Akarshit's update saved!");
-        }
-
-        // Save Harshika's update
-        function saveHarshikaUpdate() {
-            const updateText = document.getElementById('harshika-input').value;
-            document.getElementById('harshika-text').innerText = updateText;
-            alert("Harshika's update saved!");
-        }
-
-        // Save Akarshit's comment on Harshika's section
-        function saveAkarshitComment() {
-            const commentText = document.getElementById('harshika-comment').value;
-            alert("Akarshit's comment: " + commentText);
-        }
-
-        // Save Harshika's comment on Akarshit's section
-        function saveHarshikaComment() {
-            const commentText = document.getElementById('akarshit-comment').value;
-            alert("Harshika's comment: " + commentText);
-        }
-    </script>
 </body>
 </html>
