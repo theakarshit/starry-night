@@ -13,6 +13,8 @@
             font-family: 'Lato', sans-serif; /* Lato for body */
             background-color: #0D1B2A; /* Dark background */
             color: #E1E2E1; /* Moonlight text color */
+            height: 100%;
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
 
         /* Header Styles */
@@ -63,20 +65,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 80vh; /* Height of the hero section */
+            height: 100vh; /* Full viewport height */
             background-image: url('https://i.ibb.co/hHJXv8b/Untitled-design-156.png');
             background-size: cover;
             background-position: center;
             position: relative;
+            width: 100vw;
         }
 
-        /* Left Section for Akarshit (Aries) */
+        /* Left and Right Sections */
         .left-section, .right-section {
             width: 50%; /* Split into two equal sections */
             height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
 
         /* Bio Cards */
@@ -89,6 +93,7 @@
             width: 250px; /* Vertically rectangular card */
             text-align: center;
             transition: transform 0.3s;
+            z-index: 20; /* Make sure bio cards stay on top */
         }
 
         .bio-card img {
@@ -147,7 +152,7 @@
                 <img src="https://i.ibb.co/album/QdbmGb.jpg" alt="Akarshit">
                 <div class="bio-title">Akarshit</div>
                 <div class="bio-title">Aries</div>
-                <p class="bio-description">Aries are natural leaders, full of energy, determination, and a courageous spirit.</p>
+                <p class="bio-description">Aries are natural leaders, full of energy, determination, and a courageous spirit, always ready to take on challenges.</p>
             </div>
         </div>
 
@@ -157,7 +162,7 @@
                 <img src="https://i.ibb.co/album/vJJZG7.jpg" alt="Harshika">
                 <div class="bio-title">Harshika</div>
                 <div class="bio-title">Virgo</div>
-                <p class="bio-description">Virgos are perfectionists, detail-oriented, practical, and deeply thoughtful in their actions.</p>
+                <p class="bio-description">Virgos are perfectionists, detail-oriented, practical, and deeply thoughtful in their actions, always seeking balance and harmony.</p>
             </div>
         </div>
     </section>
