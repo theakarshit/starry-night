@@ -74,13 +74,24 @@
         }
 
         /* Left and Right Sections */
-        .left-section, .right-section {
-            width: 50%; /* Split into two equal sections */
+        .left-section {
+            width: 50%; /* Left section width */
             height: 100%;
             display: flex;
-            justify-content: center;
+            justify-content: flex-end; /* Align the bio card towards the left */
             align-items: center;
             position: relative;
+            padding-left: 100px; /* Move the bio card more to the left */
+        }
+
+        .right-section {
+            width: 50%; /* Right section width */
+            height: 100%;
+            display: flex;
+            justify-content: flex-start; /* Align the bio card towards the right */
+            align-items: center;
+            position: relative;
+            padding-right: 100px; /* Move the bio card more to the right */
         }
 
         /* Bio Cards */
