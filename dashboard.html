@@ -63,7 +63,7 @@
         /* Hero Section */
         .hero {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-between; /* Push the cards outward */
             align-items: center;
             height: 100vh; /* Full viewport height */
             background-image: url('https://i.ibb.co/hHJXv8b/Untitled-design-156.png');
@@ -74,24 +74,19 @@
         }
 
         /* Left and Right Sections */
-        .left-section {
-            width: 50%; /* Left section width */
-            height: 100%;
+        .left-section, .right-section {
             display: flex;
-            justify-content: flex-end; /* Align the bio card towards the left */
+            justify-content: center;
             align-items: center;
-            position: relative;
-            padding-left: 100px; /* Move the bio card more to the left */
+            height: 100%;
+        }
+
+        .left-section {
+            margin-left: 50px; /* Move Akarshit's card more to the left */
         }
 
         .right-section {
-            width: 50%; /* Right section width */
-            height: 100%;
-            display: flex;
-            justify-content: flex-start; /* Align the bio card towards the right */
-            align-items: center;
-            position: relative;
-            padding-right: 100px; /* Move the bio card more to the right */
+            margin-right: 50px; /* Move Harshika's card more to the right */
         }
 
         /* Bio Cards */
