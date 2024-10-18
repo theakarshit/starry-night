@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Universe - Dashboard</title>
     <style>
-        /* Sacramento Font */
-        @import url('https://fonts.googleapis.com/css2?family=Sacramento&display=swap');
+        /* Sacramento and Lato Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Sacramento&family=Lato:wght@400;700&display=swap');
 
         body {
             margin: 0;
-            font-family: 'Sacramento', cursive; /* Sacramento font */
+            font-family: 'Lato', sans-serif; /* Lato font for body */
             background-color: #0D1B2A; /* Dark background */
             color: #E1E2E1; /* Moonlight text color */
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        h1, h2, h3 {
+            font-family: 'Sacramento', cursive; /* Sacramento font for headings */
         }
 
         /* Header Styles */
@@ -23,8 +26,8 @@
             align-items: center;
             padding: 20px;
             background-color: rgba(27, 38, 59, 0.6); /* Transparent background */
-            position: fixed; /* Fixed header */
-            width: 100%; /* Full width */
+            position: absolute; /* Position header over the hero image */
+            width: 100%; /* Make sure the header spans the full width */
             top: 0;
             left: 0;
             z-index: 10; /* Ensure the header stays on top */
@@ -63,65 +66,51 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            height: 100vh; /* Full height of the viewport */
-            background-image: url('https://i.ibb.co/hHJXv8b/Untitled-design-156.png'); /* New hero image */
-            background-size: cover; /* Cover the entire section */
-            background-position: center; /* Center the image */
+            height: 80vh; /* Height of the hero section */
+            background-image: url('https://i.ibb.co/hHJXv8b/Untitled-design-156.png');
+            background-size: cover;
+            background-position: center;
             position: relative;
         }
 
-        /* Bio Card Styles */
+        /* Left Section for Akarshit (Aries) */
+        .left-section, .right-section {
+            width: 50%; /* Split into two equal sections */
+            height: 100%;
+        }
+
+        /* Bio Cards */
         .bio-card {
             background-color: rgba(27, 38, 59, 0.8); /* Slightly transparent dark background */
-            color: #E1E2E1; /* Moonlight text color */
+            color: #E1E2E1; /* Moonlight text */
             padding: 20px;
-            border-radius: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            width: 300px; /* Adjust width to make it vertically rectangular */
             text-align: center;
-            width: 250px; /* Adjust width for rectangular shape */
-            position: absolute;
-            z-index: 20; /* Ensure the bio cards are above the hero image */
-            transition: transform 0.3s ease-in-out; /* Smooth scaling transition */
+            transition: transform 0.3s;
         }
 
-        /* Hover effect to scale the bio card */
-        .bio-card:hover {
-            transform: scale(1.3); /* Scale up the bio card by 30% */
-        }
-
-        /* Left bio card for Akarshit */
-        .bio-card.left {
-            left: 10%; /* Position Akarshit's bio card on the left */
-        }
-
-        /* Right bio card for Harshika */
-        .bio-card.right {
-            right: 10%; /* Position Harshika's bio card on the right */
-        }
-
-        /* Circular image for bio cards */
         .bio-card img {
-            border-radius: 50%; /* Make the image circular */
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
+            border-radius: 50%; /* Circular image */
+            width: 100px; /* Adjust size for circular image */
+            height: 100px; /* Maintain aspect ratio */
             margin-bottom: 10px;
         }
 
-        /* Name and Zodiac */
-        .bio-card h2 {
-            margin: 10px 0;
+        .bio-card:hover {
+            transform: scale(1.3); /* Scale up by 30% on hover */
+        }
+
+        .bio-description {
+            font-size: 18px; /* Lato for descriptions */
+            line-height: 1.5;
+        }
+
+        .bio-title {
             font-size: 28px;
-        }
-
-        .bio-card h3 {
-            margin: 5px 0;
-            font-size: 20px;
-            color: #FFE43A; /* Soft yellow color for zodiac signs */
-        }
-
-        .bio-card p {
-            font-size: 16px;
             margin-top: 10px;
+            font-family: 'Sacramento', cursive; /* Sacramento font for titles */
         }
     </style>
 </head>
@@ -149,20 +138,24 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <!-- Left Bio Card: Akarshit (Aries) -->
-        <div class="bio-card left">
-            <img src="https://i.ibb.co/YWsDWbD/profile-placeholder.png" alt="Akarshit">
-            <h2>Akarshit</h2>
-            <h3>Aries</h3>
-            <p>Aries are dynamic, fearless, and full of energy. They thrive in leadership roles and enjoy taking on challenges head-on.</p>
+        <!-- Left Section: Akarshit's Bio Card -->
+        <div class="left-section">
+            <div class="bio-card">
+                <img src="https://i.ibb.co/album/QdbmGb.jpg" alt="Akarshit">
+                <div class="bio-title">Akarshit</div>
+                <div class="bio-title">Aries</div>
+                <p class="bio-description">As a natural leader, Aries love challenges and possess an unshakable courage.</p>
+            </div>
         </div>
 
-        <!-- Right Bio Card: Harshika (Virgo) -->
-        <div class="bio-card right">
-            <img src="https://i.ibb.co/YWsDWbD/profile-placeholder.png" alt="Harshika">
-            <h2>Harshika</h2>
-            <h3>Virgo</h3>
-            <p>Virgos are known for their practicality, attention to detail, and unwavering loyalty. They strive for perfection in everything they do.</p>
+        <!-- Right Section: Harshika's Bio Card -->
+        <div class="right-section">
+            <div class="bio-card">
+                <img src="https://i.ibb.co/album/vJJZG7.jpg" alt="Harshika">
+                <div class="bio-title">Harshika</div>
+                <div class="bio-title">Virgo</div>
+                <p class="bio-description">Virgos are practical, analytical, and always ready to help with their pragmatic approach.</p>
+            </div>
         </div>
     </section>
 
