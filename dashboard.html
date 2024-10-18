@@ -10,13 +10,9 @@
 
         body {
             margin: 0;
-            font-family: 'Lato', sans-serif; /* Lato font for body */
+            font-family: 'Lato', sans-serif; /* Lato for body */
             background-color: #0D1B2A; /* Dark background */
             color: #E1E2E1; /* Moonlight text color */
-        }
-
-        h1, h2, h3 {
-            font-family: 'Sacramento', cursive; /* Sacramento font for headings */
         }
 
         /* Header Styles */
@@ -52,7 +48,8 @@
         .menu-item {
             margin: 0 20px; /* Increased margin between menu items */
             color: #E1E2E1; /* Moonlight text color */
-            font-size: 24px; /* Larger font for visibility */
+            font-size: 28px; /* Larger font for visibility */
+            font-family: 'Sacramento', cursive; /* Sacramento font for menu items */
             text-decoration: none;
             transition: color 0.3s;
         }
@@ -77,6 +74,9 @@
         .left-section, .right-section {
             width: 50%; /* Split into two equal sections */
             height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         /* Bio Cards */
@@ -86,7 +86,7 @@
             padding: 20px;
             margin: 20px;
             border-radius: 10px;
-            width: 300px; /* Adjust width to make it vertically rectangular */
+            width: 250px; /* Vertically rectangular card */
             text-align: center;
             transition: transform 0.3s;
         }
@@ -102,16 +102,19 @@
             transform: scale(1.3); /* Scale up by 30% on hover */
         }
 
-        .bio-description {
-            font-size: 18px; /* Lato for descriptions */
-            line-height: 1.5;
-        }
-
         .bio-title {
             font-size: 28px;
             margin-top: 10px;
             font-family: 'Sacramento', cursive; /* Sacramento font for titles */
         }
+
+        .bio-description {
+            font-size: 18px; /* Lato for descriptions */
+            font-family: 'Lato', sans-serif;
+            line-height: 1.5;
+            margin-top: 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -144,7 +147,7 @@
                 <img src="https://i.ibb.co/album/QdbmGb.jpg" alt="Akarshit">
                 <div class="bio-title">Akarshit</div>
                 <div class="bio-title">Aries</div>
-                <p class="bio-description">As a natural leader, Aries love challenges and possess an unshakable courage.</p>
+                <p class="bio-description">Aries are natural leaders, full of energy, determination, and a courageous spirit.</p>
             </div>
         </div>
 
@@ -154,7 +157,7 @@
                 <img src="https://i.ibb.co/album/vJJZG7.jpg" alt="Harshika">
                 <div class="bio-title">Harshika</div>
                 <div class="bio-title">Virgo</div>
-                <p class="bio-description">Virgos are practical, analytical, and always ready to help with their pragmatic approach.</p>
+                <p class="bio-description">Virgos are perfectionists, detail-oriented, practical, and deeply thoughtful in their actions.</p>
             </div>
         </div>
     </section>
