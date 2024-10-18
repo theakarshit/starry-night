@@ -70,10 +70,52 @@
             position: relative;
         }
 
-        /* Left Section for Akarshit (Aries) */
-        .left-section, .right-section {
-            width: 50%; /* Split into two equal sections */
-            height: 100%;
+        /* Bio Card Styles */
+        .bio-card {
+            background-color: rgba(27, 38, 59, 0.8); /* Slightly transparent dark background */
+            color: #E1E2E1; /* Moonlight text color */
+            padding: 20px;
+            border-radius: 20px;
+            text-align: center;
+            width: 250px; /* Adjust width for rectangular shape */
+            position: absolute;
+            z-index: 20; /* Ensure the bio cards are above the hero image */
+        }
+
+        /* Left bio card for Akarshit */
+        .bio-card.left {
+            left: 10%; /* Position Akarshit's bio card on the left */
+        }
+
+        /* Right bio card for Harshika */
+        .bio-card.right {
+            right: 10%; /* Position Harshika's bio card on the right */
+        }
+
+        /* Circular image for bio cards */
+        .bio-card img {
+            border-radius: 50%; /* Make the image circular */
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        /* Name and Zodiac */
+        .bio-card h2 {
+            margin: 10px 0;
+            font-size: 28px;
+        }
+
+        .bio-card h3 {
+            margin: 5px 0;
+            font-size: 20px;
+            color: #FFE43A; /* Soft yellow color for zodiac signs */
+        }
+
+        .bio-card p {
+            font-size: 16px;
+            margin-top: 10px;
         }
     </style>
 </head>
@@ -101,11 +143,21 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <!-- Left Section: Akarshit (Aries) -->
-        <div class="left-section"></div>
+        <!-- Left Bio Card: Akarshit (Aries) -->
+        <div class="bio-card left">
+            <img src="https://i.ibb.co/YWsDWbD/profile-placeholder.png" alt="Akarshit">
+            <h2>Akarshit</h2>
+            <h3>Aries</h3>
+            <p>Aries are passionate, motivated, and confident leaders.</p>
+        </div>
 
-        <!-- Right Section: Harshika (Virgo) -->
-        <div class="right-section"></div>
+        <!-- Right Bio Card: Harshika (Virgo) -->
+        <div class="bio-card right">
+            <img src="https://i.ibb.co/YWsDWbD/profile-placeholder.png" alt="Harshika">
+            <h2>Harshika</h2>
+            <h3>Virgo</h3>
+            <p>Virgos are practical, loyal, and analytical individuals.</p>
+        </div>
     </section>
 
 </body>
