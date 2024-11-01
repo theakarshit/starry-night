@@ -193,6 +193,7 @@
             margin-top: 15px; /* Adds spacing between coordinates and audio player */
             width: 100%; /* Ensures the audio player is responsive */
             max-width: 300px; /* Sets a max width for the audio player */
+            display: none; /* Initially hidden */
         }
 
         /* Mobile Styles */
@@ -290,14 +291,13 @@
             <button class="next-button" onclick="showCoordinates()">Next</button>
         </div>
 
-        <!-- Coordinates -->
+        <!-- Coordinates Section -->
         <div id="coordinates" class="coordinates" style="display:none;">
-            Coordinates: 30.731735, 76.754991<br>
+            <p>Coordinates: <strong>30.731735, 76.754991</strong></p>
             <a href="https://www.google.com/maps?q=30.731735,76.754991" target="_blank">
                 <button class="next-button">Open in Google Maps</button>
             </a>
             <button class="listen-button" onclick="playVoiceNote()">Listen to the voice note!</button>
-            <!-- Audio will be added here -->
             <audio id="audio" controls style="display:none;">
                 <source src="your-audio-file.mp3" type="audio/mpeg">
                 Your browser does not support the audio tag.
@@ -310,17 +310,17 @@
         
         function nextQuestion(questionIndex) {
             const questions = document.querySelectorAll('.question-box');
+            questions[questionIndex].classList.remove('active'); // Hide current question
             if (questionIndex < questions.length - 1) {
-                questions[questionIndex].classList.remove('active');
-                questions[questionIndex + 1].classList.add('active');
+                questions[questionIndex + 1].classList.add('active'); // Show next question
             } else {
-                showCoordinates();
+                showCoordinates(); // Show coordinates after last question
             }
         }
 
         function showCoordinates() {
             document.getElementById('coordinates').style.display = 'block';
-            document.querySelectorAll('.question-box').forEach(box => box.style.display = 'none');
+            document.querySelectorAll('.question-box').forEach(box => box.style.display = 'none'); // Hide all questions
         }
 
         function playVoiceNote() {
