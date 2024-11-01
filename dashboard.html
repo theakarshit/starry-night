@@ -200,12 +200,35 @@
             .header { display: none; } /* Hide header on mobile */
             .hero {
                 flex-direction: column;
+                height: auto; /* Adjust height for mobile */
                 padding-top: 80px;
                 justify-content: center;
             }
+            .left-section, .right-section {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 0;
+                width: 100%; /* Make sections full width */
+            }
             .bio-card {
-                width: 80%;
+                width: 90%; /* Adjust width for mobile */
                 margin: 15px 0;
+            }
+            .quiz-section {
+                padding: 20px; /* Adjust padding for mobile */
+            }
+            .quiz-section h2 {
+                font-size: 32px; /* Reduce headline size */
+            }
+            .quiz-section h3 {
+                font-size: 20px; /* Reduce subheadline size */
+            }
+            .question-text {
+                font-size: 16px; /* Reduce question text size */
+            }
+            .listen-button, .next-button {
+                width: 80%; /* Full width buttons on mobile */
             }
         }
     </style>
@@ -254,19 +277,19 @@
 
         <div id="question1" class="question-box active">
             <p class="question-text">Starting with something light. When do you think was the first time, from your perspective, that I started to fall for you?</p>
-            <textarea id="answer1" placeholder="Your answer..."></textarea>
+            <textarea id="answer1" placeholder="Type your answer here..."></textarea>
             <button class="next-button" onclick="saveAnswer(1); showNextQuestion(1)">Next</button>
         </div>
 
         <div id="question2" class="question-box">
-            <p class="question-text">What are your top 3 hangout places in the city?</p>
-            <textarea id="answer2" placeholder="Your answer..."></textarea>
+            <p class="question-text">What is something that you find attractive about an Aries?</p>
+            <textarea id="answer2" placeholder="Type your answer here..."></textarea>
             <button class="next-button" onclick="saveAnswer(2); showNextQuestion(2)">Next</button>
         </div>
 
         <div id="question3" class="question-box">
             <p class="question-text">What is that one thing that an Aries does that might make a Virgo fall for them again and again, overlooking their flaws?</p>
-            <textarea id="answer3" placeholder="Your answer..."></textarea>
+            <textarea id="answer3" placeholder="Type your answer here..."></textarea>
             <button class="next-button" onclick="saveAnswer(3); showNextQuestion(3)">Next</button>
         </div>
 
