@@ -133,11 +133,37 @@
 
         .question-box {
             display: none;
-            text-align: left;
+            text-align: center;
+            margin-top: 20px;
         }
 
         .question-box.active {
-            display: block;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            margin: 20px auto;
+            gap: 20px;
+        }
+
+        .question-text {
+            font-size: 18px;
+            margin: 0;
+            text-align: center;
+            color: #E1E2E1;
+            line-height: 1.5;
+        }
+
+        textarea {
+            width: 100%;
+            max-width: 100%;
+            min-height: 80px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #FFF;
+            resize: none;
+            font-size: 16px;
+            color: #0D1B2A;
         }
 
         .countdown { margin-top: 20px; }
@@ -148,7 +174,7 @@
         }
 
         .listen-button, .next-button {
-            margin-top: 20px;
+            margin-top: 10px;
             padding: 10px 20px;
             background-color: #FFE43A;
             color: #0D1B2A;
@@ -220,41 +246,39 @@
         <h3>Answer these questions to find the coordinates of our meeting spot!</h3>
 
         <div id="question1" class="question-box active">
-            <p>Starting with something light. When do you think was the first time, from your perspective, that I started to fall for you?</p>
+            <p class="question-text">Starting with something light. When do you think was the first time, from your perspective, that I started to fall for you?</p>
             <textarea id="answer1" placeholder="Your answer..."></textarea>
             <button class="next-button" onclick="saveAnswer(1); showNextQuestion(1)">Next</button>
         </div>
 
         <div id="question2" class="question-box">
-            <p>What are your top 3 hangout places in the city?</p>
+            <p class="question-text">What are your top 3 hangout places in the city?</p>
             <textarea id="answer2" placeholder="Your answer..."></textarea>
             <button class="next-button" onclick="saveAnswer(2); showNextQuestion(2)">Next</button>
         </div>
 
         <div id="question3" class="question-box">
-            <p>What is that one thing that an Aries does that might make a Virgo fall for them again and again, overlooking their flaws?</p>
+            <p class="question-text">What is that one thing that an Aries does that might make a Virgo fall for them again and again, overlooking their flaws?</p>
             <textarea id="answer3" placeholder="Your answer..."></textarea>
             <button class="next-button" onclick="saveAnswer(3); showNextQuestion(3)">Get Coordinates</button>
         </div>
 
         <!-- Success Message -->
         <div id="successMessage" style="display:none;">
-            <div class="countdown">Hold tight! Coordinates will reveal in <span id="countdown">5</span> seconds...</div>
+            <div class="countdown">Coordinates will appear in <span id="countdown">5</span> seconds...</div>
         </div>
 
-        <!-- Coordinates and Voice Note Section -->
-        <div id="coordinates" style="display:none;">
-            <div class="coordinates">Our meeting point is at coordinates: 30.7333° N, 76.7794° E</div>
-            <button class="listen-button" onclick="playVoiceNote()">Listen to a message</button>
+        <!-- Coordinates -->
+        <div id="coordinates" class="coordinates" style="display:none;">
+            Coordinates: Sukhna Lake, Chandigarh<br>
+            <button class="listen-button" onclick="playVoiceNote()">Listen to the voice note!</button>
         </div>
     </div>
 
     <script>
         function showNextQuestion(current) {
             document.getElementById('question' + current).classList.remove('active');
-            let next = current + 1;
-            let nextQuestion = document.getElementById('question' + next);
-
+            let nextQuestion = document.getElementById('question' + (current + 1));
             if (nextQuestion) {
                 nextQuestion.classList.add('active');
             } else {
