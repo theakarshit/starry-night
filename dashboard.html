@@ -17,184 +17,185 @@
             overflow-x: hidden;
         }
 
-        /* Header Styles */
-        .header {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background-color: rgba(27, 38, 59, 0.6);
-            position: absolute;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 10;
-        }
+        .header, .bio-card, .hero { /* Add your header, bio card, hero styles here */ }
 
-        .menu-left, .menu-right {
-            display: flex;
-            align-items: center;
-            margin: 0 20px;
-        }
-
-        .header img {
-            height: 60px;
-            margin: 0 15px;
-            transition: transform 0.3s;
-        }
-
-        .header img:hover {
-            transform: scale(1.3);
-        }
-
-        .menu-item {
-            margin: 0 20px;
+        /* Main Section Styles */
+        .main-section {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: rgba(27, 38, 59, 0.9);
             color: #E1E2E1;
-            font-size: 28px;
-            font-family: 'Sacramento', cursive;
-            text-decoration: none;
-            transition: color 0.3s;
+            margin-top: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .menu-item:hover {
+        .question-section h2, .question-section h3 {
+            font-family: 'Sacramento', cursive;
             color: #FFE43A;
         }
 
-        /* Hero Section */
-        .hero {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 100vh;
-            background-image: url('https://i.ibb.co/hHJXv8b/Untitled-design-156.png');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            width: 100vw;
-        }
-
-        /* Left and Right Sections */
-        .left-section, .right-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-
-        .left-section {
-            margin-left: 50px;
-        }
-
-        .right-section {
-            margin-right: 50px;
-        }
-
-        /* Bio Cards */
-        .bio-card {
-            background-color: rgba(27, 38, 59, 0.8);
-            color: #E1E2E1;
-            padding: 20px;
-            margin: 20px;
-            border-radius: 10px;
-            width: 250px;
+        .question-card {
+            display: none;
             text-align: center;
-            transition: transform 0.3s;
-            z-index: 20;
+            margin: 20px 0;
         }
 
-        .bio-card img {
-            border-radius: 50%;
-            width: 100px;
+        .question-card.active {
+            display: block;
+        }
+
+        .question-text {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+
+        textarea {
+            width: 100%;
             height: 100px;
-            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #E1E2E1;
+            background-color: #1B263B;
+            color: #E1E2E1;
+            resize: none;
         }
 
-        .bio-card:hover {
-            transform: scale(1.1);
-        }
-
-        .bio-title {
-            font-size: 28px;
-            margin-top: 10px;
-            font-family: 'Sacramento', cursive;
-        }
-
-        .bio-description {
+        .next-button, .listen-button {
+            background-color: #FFE43A;
+            color: #0D1B2A;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
             font-size: 18px;
-            font-family: 'Lato', sans-serif;
-            line-height: 1.5;
-            margin-top: 10px;
+            transition: background-color 0.3s;
+            margin-top: 20px;
         }
 
-        /* Mobile Styles */
-        @media (max-width: 768px) {
-            .header {
-                display: none; /* Hide header on mobile */
-            }
-
-            .hero {
-                flex-direction: column;
-                padding-top: 80px; /* Spacing above the hero section */
-                padding-bottom: 20px; /* Added bottom padding */
-                justify-content: center;
-            }
-
-            .left-section, .right-section {
-                margin: 0;
-                padding: 0 10px;
-            }
-
-            .bio-card {
-                width: 80%;
-                margin: 15px 0;
-            }
-
-            .bio-title {
-                font-size: 24px;
-            }
-
-            .bio-description {
-                font-size: 16px;
-            }
+        .next-button:hover, .listen-button:hover {
+            background-color: #E1E2E1;
         }
+
+        .countdown, .coordinates, .voice-note {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
     </style>
 </head>
 <body>
 
-    <!-- Header Section -->
-    <header class="header">
-        <div class="menu-left">
-            <a href="#" class="menu-item">Bio Card</a>
-            <a href="#" class="menu-item">Memories</a>
-        </div>
-        <div class="logo">
-            <img src="https://cdn-icons-png.flaticon.com/512/5417/5417147.png" alt="Logo">
-        </div>
-        <div class="menu-right">
-            <a href="#" class="menu-item">Thoughts</a>
-            <a href="#" class="menu-item">Images</a>
-        </div>
-    </header>
+    <!-- Main Question Section -->
+    <div class="main-section question-section">
+        <h2>Hi, Munchkin!</h2>
+        <h3>Answer these questions to find the coordinates of our meeting spot!</h3>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="left-section">
-            <div class="bio-card">
-                <img src="https://i.ibb.co/album/QdbmGb.jpg" alt="Akarshit">
-                <div class="bio-title">Akarshit</div>
-                <div class="bio-title">Aries</div>
-                <p class="bio-description">Aries are natural leaders, full of energy, determination, and a courageous spirit, always ready to take on challenges.</p>
+        <!-- Question Cards -->
+        <div id="question1" class="question-card active">
+            <div class="question-text">
+                Starting with something light. When do you think was the first time, from your perspective, that I started to fall for you?
             </div>
+            <textarea id="answer1"></textarea>
+            <button class="next-button" onclick="showNextQuestion(1)">Next</button>
         </div>
-        <div class="right-section">
-            <div class="bio-card">
-                <img src="https://i.ibb.co/album/vJJZG7.jpg" alt="Harshika">
-                <div class="bio-title">Harshika</div>
-                <div class="bio-title">Virgo</div>
-                <p class="bio-description">Virgos are perfectionists, detail-oriented, practical, and deeply thoughtful in their actions, always seeking balance and harmony.</p>
+
+        <div id="question2" class="question-card">
+            <div class="question-text">
+                What are your top 3 hangout places in the city?
             </div>
+            <textarea id="answer2"></textarea>
+            <button class="next-button" onclick="showNextQuestion(2)">Next</button>
         </div>
-    </section>
+
+        <div id="question3" class="question-card">
+            <div class="question-text">
+                What is that one thing that an Aries does that might make a Virgo fall for them again and again, overlooking their flaws?
+            </div>
+            <textarea id="answer3"></textarea>
+            <button class="next-button" onclick="submitFinalAnswer()">Submit</button>
+        </div>
+
+        <!-- Coordinates and Voice Note Section -->
+        <div id="successMessage" class="countdown" style="display: none;">Success! Coordinates will appear in <span id="countdown">5</span> seconds...</div>
+        <div id="coordinates" class="coordinates" style="display: none;">Meet me at: 30.7421° N, 76.8188° E (Sukhna Lake)</div>
+        <button id="listenButton" class="listen-button" style="display: none;" onclick="showVoiceNote()">Listen to the voice note!</button>
+        <div id="voiceNote" class="voice-note" style="display: none;">
+            <audio controls>
+                <source src="path/to/voice-note.mp3" type="audio/mp3">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    <script>
+        let currentQuestion = 1;
+
+        function showNextQuestion(questionNumber) {
+            // Save answer
+            const answer = document.getElementById(`answer${questionNumber}`).value;
+            if (answer.trim() === "") {
+                alert("Please answer the question before proceeding.");
+                return;
+            }
+
+            // Display answer
+            const answerDisplay = document.createElement("p");
+            answerDisplay.innerText = `Q${questionNumber}: ${answer}`;
+            document.querySelector(".main-section").appendChild(answerDisplay);
+
+            // Hide current question and show the next
+            document.getElementById(`question${questionNumber}`).classList.remove("active");
+            currentQuestion++;
+            document.getElementById(`question${currentQuestion}`).classList.add("active");
+        }
+
+        function submitFinalAnswer() {
+            // Save final answer
+            const finalAnswer = document.getElementById(`answer${currentQuestion}`).value;
+            if (finalAnswer.trim() === "") {
+                alert("Please answer the question before proceeding.");
+                return;
+            }
+
+            const answerDisplay = document.createElement("p");
+            answerDisplay.innerText = `Q${currentQuestion}: ${finalAnswer}`;
+            document.querySelector(".main-section").appendChild(answerDisplay);
+
+            // Show success message and start countdown
+            document.getElementById("question3").classList.remove("active");
+            document.getElementById("successMessage").style.display = "block";
+            startCountdown();
+        }
+
+        function startCountdown() {
+            let countdown = 5;
+            const countdownElement = document.getElementById("countdown");
+            const interval = setInterval(() => {
+                countdown--;
+                countdownElement.innerText = countdown;
+
+                if (countdown === 0) {
+                    clearInterval(interval);
+                    showCoordinates();
+                }
+            }, 1000);
+        }
+
+        function showCoordinates() {
+            document.getElementById("successMessage").style.display = "none";
+            document.getElementById("coordinates").style.display = "block";
+            document.getElementById("listenButton").style.display = "block";
+        }
+
+        function showVoiceNote() {
+            document.getElementById("listenButton").style.display = "none";
+            document.getElementById("voiceNote").style.display = "block";
+        }
+    </script>
 
 </body>
 </html>
