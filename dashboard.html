@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Universe - Dashboard</title>
     <style>
-        /* Import Fonts */
+        /* Fonts */
         @import url('https://fonts.googleapis.com/css2?family=Sacramento&family=Lato:wght@400;700&display=swap');
 
         body {
@@ -13,11 +13,10 @@
             font-family: 'Lato', sans-serif;
             background-color: #0D1B2A;
             color: #E1E2E1;
-            height: 100%;
             overflow-x: hidden;
         }
 
-        /* Header Styles */
+        /* Header Section */
         .header {
             display: flex;
             justify-content: center;
@@ -69,27 +68,10 @@
             background-image: url('https://i.ibb.co/hHJXv8b/Untitled-design-156.png');
             background-size: cover;
             background-position: center;
-            position: relative;
             width: 100vw;
         }
 
-        /* Left and Right Sections */
-        .left-section, .right-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-        }
-
-        .left-section {
-            margin-left: 50px;
-        }
-
-        .right-section {
-            margin-right: 50px;
-        }
-
-        /* Bio Cards */
+        /* Bio Card Styles */
         .bio-card {
             background-color: rgba(27, 38, 59, 0.8);
             color: #E1E2E1;
@@ -126,104 +108,73 @@
             margin-top: 10px;
         }
 
+        /* Quiz Section */
+        .quiz-section {
+            padding: 40px 20px 80px;
+            text-align: center;
+            background-color: rgba(27, 38, 59, 0.9);
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+
+        .quiz-section h2 {
+            font-size: 40px;
+            font-family: 'Sacramento', cursive;
+            margin: 10px 0;
+        }
+
+        .quiz-section h3 {
+            font-size: 22px;
+            font-family: 'Lato', sans-serif;
+            margin: 15px 0 30px;
+            color: #FFE43A;
+        }
+
+        .question-box {
+            display: none;
+            text-align: left;
+        }
+
+        .question-box.active {
+            display: block;
+        }
+
+        .countdown { margin-top: 20px; }
+
+        .coordinates {
+            font-size: 18px;
+            margin-top: 15px;
+        }
+
+        .listen-button, .next-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #FFE43A;
+            color: #0D1B2A;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .listen-button:hover, .next-button:hover {
+            background-color: #FFD700;
+        }
+
         /* Mobile Styles */
         @media (max-width: 768px) {
-            .header {
-                display: none; /* Hide header on mobile */
-            }
-
+            .header { display: none; } /* Hide header on mobile */
             .hero {
                 flex-direction: column;
-                padding-top: 80px; /* Spacing above the hero section */
-                padding-bottom: 20px; /* Added bottom padding */
+                padding-top: 80px;
                 justify-content: center;
             }
-
-            .left-section, .right-section {
-                margin: 0;
-                padding: 0 10px;
-            }
-
             .bio-card {
                 width: 80%;
                 margin: 15px 0;
             }
-
-            .bio-title {
-                font-size: 24px;
-            }
-
-            .bio-description {
-                font-size: 16px;
-            }
         }
-
-        /* New Question Section Styles */
-        .main-section {
-            text-align: center;
-            padding: 40px 20px;
-            background-color: rgba(27, 38, 59, 0.9);
-            color: #E1E2E1;
-            margin-top: 20px;
-            border-radius: 10px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .question-section h2, .question-section h3 {
-            font-family: 'Sacramento', cursive;
-            color: #FFE43A;
-        }
-
-        .question-card {
-            display: none;
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .question-card.active {
-            display: block;
-        }
-
-        .question-text {
-            font-size: 20px;
-            margin: 20px 0;
-        }
-
-        textarea {
-            width: 100%;
-            height: 100px;
-            padding: 10px;
-            font-size: 16px;
-            border-radius: 5px;
-            border: 1px solid #E1E2E1;
-            background-color: #1B263B;
-            color: #E1E2E1;
-            resize: none;
-        }
-
-        .next-button, .listen-button {
-            background-color: #FFE43A;
-            color: #0D1B2A;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: background-color 0.3s;
-            margin-top: 20px;
-        }
-
-        .next-button:hover, .listen-button:hover {
-            background-color: #E1E2E1;
-        }
-
-        .countdown, .coordinates, .voice-note {
-            font-size: 18px;
-            margin-top: 20px;
-        }
-
     </style>
 </head>
 <body>
@@ -263,34 +214,27 @@
         </div>
     </section>
 
-    <!-- Main Question Section -->
-    <div class="main-section question-section">
+    <!-- Quiz Section -->
+    <div class="quiz-section">
         <h2>Hi, Munchkin!</h2>
         <h3>Answer these questions to find the coordinates of our meeting spot!</h3>
 
-        <!-- Question Cards -->
-        <div id="question1" class="question-card active">
-            <div class="question-text">
-                Starting with something light. When do you think was the first time, from your perspective, that I started to fall for you?
-            </div>
-            <textarea id="answer1"></textarea>
-            <button class="next-button" onclick="showNextQuestion(1)">Next</button>
+        <div id="question1" class="question-box active">
+            <p>Starting with something light. When do you think was the first time, from your perspective, that I started to fall for you?</p>
+            <textarea id="answer1" placeholder="Your answer..."></textarea>
+            <button class="next-button" onclick="saveAnswer(1); showNextQuestion(1)">Next</button>
         </div>
 
-        <div id="question2" class="question-card">
-            <div class="question-text">
-                What are your top 3 hangout places in the city?
-            </div>
-            <textarea id="answer2"></textarea>
-            <button class="next-button" onclick="showNextQuestion(2)">Next</button>
+        <div id="question2" class="question-box">
+            <p>What are your top 3 hangout places in the city?</p>
+            <textarea id="answer2" placeholder="Your answer..."></textarea>
+            <button class="next-button" onclick="saveAnswer(2); showNextQuestion(2)">Next</button>
         </div>
 
-        <div id="question3" class="question-card">
-            <div class="question-text">
-                What is that one thing you feel you can tell me but can't tell anyone else?
-            </div>
-            <textarea id="answer3"></textarea>
-            <button class="next-button" onclick="showNextQuestion(3)">Get Coordinates</button>
+        <div id="question3" class="question-box">
+            <p>What is that one thing that an Aries does that might make a Virgo fall for them again and again, overlooking their flaws?</p>
+            <textarea id="answer3" placeholder="Your answer..."></textarea>
+            <button class="next-button" onclick="saveAnswer(3); showNextQuestion(3)">Get Coordinates</button>
         </div>
 
         <!-- Success Message -->
@@ -314,17 +258,23 @@
             if (nextQuestion) {
                 nextQuestion.classList.add('active');
             } else {
-                document.getElementById('successMessage').style.display = 'block';
-                startCountdown();
+                showSuccessMessage();
             }
         }
 
-        function startCountdown() {
+        function saveAnswer(questionNumber) {
+            let answer = document.getElementById('answer' + questionNumber).value;
+            localStorage.setItem('answer' + questionNumber, answer);
+        }
+
+        function showSuccessMessage() {
+            document.getElementById('successMessage').style.display = 'block';
             let countdown = 5;
+            let countdownElement = document.getElementById('countdown');
             let interval = setInterval(function() {
-                document.getElementById('countdown').innerText = countdown;
                 countdown--;
-                if (countdown < 0) {
+                countdownElement.innerText = countdown;
+                if (countdown === 0) {
                     clearInterval(interval);
                     document.getElementById('successMessage').style.display = 'none';
                     document.getElementById('coordinates').style.display = 'block';
@@ -333,7 +283,12 @@
         }
 
         function playVoiceNote() {
-            alert("Playing voice note..."); // Replace with actual audio playback
+            document.querySelector(".listen-button").style.display = "none";
+            let audio = document.createElement("audio");
+            audio.controls = true;
+            audio.src = "path/to/your-voice-note.mp3";
+            document.getElementById('coordinates').appendChild(audio);
+            audio.play();
         }
     </script>
 </body>
