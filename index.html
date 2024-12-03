@@ -84,23 +84,24 @@
 
         // Handle Login Form
         document.getElementById('login-form').addEventListener('submit', function (event) {
-            event.preventDefault();
-            
-            const username = document.getElementById('login-username').value;
-            const password = document.getElementById('login-password').value;
+    event.preventDefault();
+    
+    const username = document.getElementById('login-username').value;
+    const password = document.getElementById('login-password').value;
 
-            // Check if the username and password match
-            if (users[username] && users[username] === password) {
-                // Redirect based on user
-                if (username === 'theakarshit') {
-                    window.location.href = 'dashboard.html?user=akarshit';
-                } else if (username === 'harshika09') {
-                    window.location.href = 'dashboard.html?user=harshika';
-                }
-            } else {
-                document.getElementById('login-error-message').innerText = 'Incorrect username or password';
-            }
-        });
+    // Check if the username and password match
+    if (users[username] && users[username] === password) {
+        // Redirect based on user
+        if (username === 'theakarshit') {
+            window.location.href = 'dashboard_clone.html?user=akarshit';
+        } else if (username === 'harshika09') {
+            window.location.href = 'dashboard_clone.html?user=harshika';
+        }
+    } else {
+        document.getElementById('login-error-message').innerText = 'Incorrect username or password';
+    }
+});
+
 
         // Handle Set Password Form
         document.getElementById('set-password-form').addEventListener('submit', function (event) {
